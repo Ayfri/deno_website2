@@ -26,7 +26,7 @@ for await (const req of s) {
   return (
     <>
       <Head>
-        <title>Deno - A secure runtime for JavaScript and TypeScript</title>
+        <title>Deno - Un runtime sécurisé pour JavaScript et TypeScript</title>
       </Head>
       <CookieBanner />
       <div className="bg-white">
@@ -37,8 +37,8 @@ for await (const req of s) {
               Deno
             </h1>
             <h2 className="mt-4 sm:mt-5 font-light text-2xl text-center leading-tight text-gray-900">
-              A <strong className="font-semibold">secure</strong> runtime for{" "}
-              <strong className="font-semibold">JavaScript</strong> and{" "}
+              Un runtime <strong className="font-semibold">sécurisé</strong>{" "}
+              pour <strong className="font-semibold">JavaScript</strong> et{" "}
               <strong className="font-semibold">TypeScript</strong>.
             </h2>
 
@@ -52,24 +52,24 @@ for await (const req of s) {
         </div>
         <div className="max-w-screen-sm mx-auto px-4 sm:px-6 md:px-8 mt-20">
           <p className="my-4 text-gray-700">
-            Deno is a simple, modern and secure runtime for JavaScript and
-            TypeScript that uses V8 and is built in Rust.
+            Deno est un runtime simple, moderne et sécurisé pour JavaScript et
+            TypeScript qui utilise V8 et est codé en Rust.
           </p>
           <ol className="ml-8 list-disc text-gray-700">
             <li>
-              Secure by default. No file, network, or environment access, unless
-              explicitly enabled.
+              Sécurisé par défaut. Aucun accès aux fichiers, au réseau ou à
+              l'environnement, sauf si explicitement autorisé.
             </li>
-            <li>Supports TypeScript out of the box.</li>
-            <li>Ships only a single executable file.</li>
+            <li>Supporte TypeScript nativement.</li>
+            <li>Consiste en un seul fichier exécutable.</li>
             <li>
-              Has built-in utilities like a dependency inspector (
-              <InlineCode>deno info</InlineCode>) and a code formatter (
-              <InlineCode>deno fmt</InlineCode>).
+              Possède des utilitaires intégrés comme un inspecteur de
+              dépendances (<InlineCode>deno info</InlineCode>) et un formateur
+              de code (<InlineCode>deno fmt</InlineCode>).
             </li>
             <li>
-              Has a set of reviewed (audited) standard modules that are
-              guaranteed to work with Deno:{" "}
+              Dispose d'un ensemble de modules standards (audités) garantis de
+              fonctionner avec Deno:{" "}
               <a href="https://deno.land/std" className="link">
                 deno.land/std
               </a>
@@ -90,16 +90,18 @@ for await (const req of s) {
           <Link href="#getting-started">
             <a className="hover:underline">
               <h3 className="font-bold text-xl" id="getting-started">
-                Getting Started
+                Commencer
               </h3>
             </a>
           </Link>
-          <p className="my-4 text-gray-700">Try running a simple program:</p>
+          <p className="my-4 text-gray-700">
+            Essayez d'exécuter un programme simple:
+          </p>
           <CodeBlock
             code="deno run https://deno.land/std/examples/welcome.ts"
             language="bash"
           />
-          <p className="my-4 text-gray-700">Or a more complex one:</p>
+          <p className="my-4 text-gray-700">Ou un plus complexe:</p>
         </div>
         <div className="max-w-screen-sm mx-auto px-4 sm:px-6 md:px-8">
           <CodeBlock
@@ -110,10 +112,10 @@ for await (const req of s) {
         </div>
         <div className="max-w-screen-sm mx-auto px-4 sm:px-6 md:px-8">
           <p className="my-4 text-gray-700">
-            You can find a more in depth introduction, examples, and environment
-            setup guides in{" "}
+            Vous pouvez trouver une introduction plus détaillée, des exemples et
+            des guides de configuration de l'environnement dans{" "}
             <Link href="/manual">
-              <a className="link">the manual</a>
+              <a className="link">le manuel</a>
             </Link>
             .
           </p>
@@ -122,70 +124,71 @@ for await (const req of s) {
           <Link href="#runtime-documentation">
             <a className="hover:underline">
               <h3 className="font-bold text-xl" id="runtime-documentation">
-                Runtime Documentation
+                Documentation du runtime
               </h3>
             </a>
           </Link>
           <p className="my-4 text-gray-700">
-            The basic runtime documentation for Deno can be found on{" "}
+            La documentation du runtime de base pour Deno est disponible sur{" "}
             <a href="https://doc.deno.land/builtin/stable" className="link">
               doc.deno.land
             </a>
             .
           </p>
           <p className="my-4 text-gray-700">
-            Deno comes with{" "}
+            Deno est livré avec{" "}
             <Link href="/manual">
-              <a className="link">a manual</a>
+              <a className="link">un manuel</a>
             </Link>{" "}
-            which contains more in depth explanations about the more complex
-            functions of the runtime, an introduction to the concepts that Deno
-            is built on, details about the internals of Deno, how to embed Deno
-            in your own application and how to extend Deno using Rust plugins.
+            qui contient des explications plus détaillées sur les fonctions les
+            plus complexes du runtime, une introduction aux concepts sur
+            lesquels Deno est construit, des détails sur les composants internes
+            de Deno, comment intégrer Deno dans votre propre application et
+            comment étendre Deno à l'aide de plugins Rust.
           </p>
           <p className="my-4 text-gray-700">
-            The manual also contains information about the built in tools that
-            Deno provides.
+            Le manuel contient également des informations sur les outils
+            intégrés fournis par Deno.
           </p>
         </div>
         <div className="max-w-screen-sm mx-auto px-4 sm:px-6 md:px-8 mt-20">
           <Link href="#standard-modules">
             <a className="hover:underline">
               <h3 className="font-bold text-xl" id="standard-modules">
-                Standard Modules
+                Modules Standards
               </h3>
             </a>
           </Link>
           <p className="my-4 text-gray-700">
-            Next to the Deno runtime, Deno also provides a list of audited
-            standard modules that are reviewed by the Deno maintainers and are
-            guaranteed to work with a specific Deno version. These live
-            alongside the Deno source code in the{" "}
+            En plus du runtime Deno, Deno fournit également une liste de modules
+            standard audités qui sont examinés par les responsables de Deno et
+            qui sont garantis pour fonctionner avec une version Deno spécifique.
+            Ceux-ci cohabitent avec le code source de Deno dans le dépôt{" "}
             <a href="https://github.com/denoland/deno" className="link">
               denoland/deno
             </a>{" "}
-            repository.
+            .
           </p>
           <p className="my-4 text-gray-700">
-            These standard modules are hosted at{" "}
+            Ces modules standards sont hébergés chez{" "}
             <Link href="/std">
               <a className="link">deno.land/std</a>
             </Link>{" "}
-            and are distributed via URLs like all other ES modules that are
-            compatible with Deno.
+            et sont distribués via des URL comme tous les autres modules ES
+            compatibles avec Deno.
           </p>
         </div>
         <div className="max-w-screen-sm mx-auto px-4 sm:px-6 md:px-8 mt-20">
           <Link href="#third-party-modules">
             <a className="hover:underline">
               <h3 className="font-bold text-xl" id="third-party-modules">
-                Third Party Modules
+                Modules tiers
               </h3>
             </a>
           </Link>
           <p className="my-4 text-gray-700">
-            Deno can import modules from any location on the web, like GitHub, a
-            personal webserver, or a CDN like{" "}
+            Deno peut importer des modules de n'importe quel emplacement sur le
+            Web, comme GitHub, un serveur Web personnel ou un CDN comme{" "}
             <a href="https://www.skypack.dev" className="link">
               Skypack
             </a>
@@ -200,18 +203,19 @@ for await (const req of s) {
             .
           </p>
           <p className="my-4 text-gray-700">
-            To make it easier to consume third party modules Deno provides some
-            built in tooling like <InlineCode>deno info</InlineCode> and{" "}
-            <InlineCode>deno doc</InlineCode>. deno.land also provides a web UI
-            for viewing module documentation. It is available at{" "}
+            Pour faciliter l'utilisation de modules tiers, Deno fournit des
+            outils intégrés tels que <InlineCode>deno info</InlineCode> et{" "}
+            <InlineCode>deno doc</InlineCode>. deno.land fournit également une
+            UI Web pour consulter la documentation de modules. Disponible sur{" "}
             <a href="https://doc.deno.land" className="link">
               doc.deno.land
             </a>
             .
           </p>
           <p className="my-4 text-gray-700">
-            deno.land also provides a simple public hosting service for ES
-            modules that work with Deno. It can be found at{" "}
+            deno.land fournit également un service d'hébergement public simple
+            pour les modules ES qui fonctionnent avec Deno. Il peut être trouvé
+            à{" "}
             <Link href="/x">
               <a className="link">deno.land/x</a>
             </Link>
@@ -281,7 +285,7 @@ const InstallSection = () => {
   const cargo = (
     <div key="cargo" className="my-4 text-gray-700">
       <p className="py-2">
-        Build and install from source using{" "}
+        Construire et installer à partir de la source en utilisant{" "}
         <a href="https://crates.io/crates/deno" className="link">
           Cargo
         </a>
@@ -293,10 +297,11 @@ const InstallSection = () => {
   return (
     <>
       <p className="my-4 text-gray-700">
-        Deno ships as a single executable with no dependencies. You can install
-        it using the installers below, or download a release binary from the{" "}
+        Deno est livré comme un exécutable unique sans dépendances. Vous pouvez
+        l'installer à l'aide des programmes d'installation ci-dessous ou
+        télécharger un binaire de version à partir de la{" "}
         <a href="https://github.com/denoland/deno/releases" className="link">
-          releases page
+          page des versions
         </a>
         .
       </p>
@@ -307,11 +312,11 @@ const InstallSection = () => {
       {scoop}
       {cargo}
       <p className="my-4 text-gray-700">
-        See{" "}
+        Voir{" "}
         <a className="link" href="https://github.com/denoland/deno_install">
           deno_install
         </a>{" "}
-        for more installation options.
+        pour plus d'options d'installation.
       </p>
     </>
   );
