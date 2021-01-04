@@ -70,7 +70,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
   return (
     <>
       <Head>
-        <title>Third Party Modules | Deno</title>
+        <title>Modules tiers | Deno</title>
       </Head>
       <CookieBanner />
       <div className="bg-gray">
@@ -82,20 +82,20 @@ function ThirdPartyRegistryList(): React.ReactElement {
         <div>
           <div className="max-w-screen-lg mx-auto px-4 sm:px-6 md:px-8 mt-8">
             <dt className="text-lg leading-6 font-medium text-gray-900">
-              What is deno.land/x?
+              Qu'est-ce qu'est deno.land/x?
             </dt>
             <dd className="mt-2">
               <p className="text-base leading-6 text-gray-500">
-                <span className="font-semibold">deno.land/x</span> is a hosting
-                service for Deno scripts. It caches releases of open source
-                modules stored on GitHub and serves them at one easy to remember
-                domain.
+                <span className="font-semibold">deno.land/x</span> est un
+                service d'hébergement pour les scripts Deno. Il met en cache les
+                versions des modules open source stockées sur GitHub et les sert
+                sur un domaine facile à retenir.
               </p>
             </dd>
 
             <div className="mt-2">
               <a href="#info" className="link">
-                Learn more
+                En savoir plus
               </a>
             </div>
             {/* <div className="mt-8">
@@ -107,14 +107,16 @@ function ThirdPartyRegistryList(): React.ReactElement {
           </div>
           <div className="max-w-screen-lg mx-auto px-4 sm:px-6 md:px-8 mt-8">
             <label htmlFor="query" className="font-medium sr-only">
-              Search
+              Rechercher
             </label>
             <input
               id="query"
               className="block w-full px-4 py-2 leading-normal bg-white border border-gray-200 rounded-lg outline-none shadow hover:shadow-sm focus:shadow-sm appearance-none focus:border-gray-300 hover:border-gray-300 mt-1"
               type="text"
               placeholder={
-                !resp ? "Search" : `Search through ${resp.totalCount} modules`
+                !resp
+                  ? "Rechercher"
+                  : `Rechercher dans ${resp.totalCount} modules`
               }
               value={query}
               onChange={handleSearchInput}
@@ -149,7 +151,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                               fill="currentColor"
                               viewBox="0 0 20 20"
                             >
-                              <title>star</title>
+                              <title>étoile</title>
                               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                             </svg>
                           </div>
@@ -173,14 +175,14 @@ function ThirdPartyRegistryList(): React.ReactElement {
                 <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
                   <div className="flex-1 flex justify-between items-center sm:hidden">
                     <button className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-gray-100 text-sm leading-5 font-medium rounded-md bg-white">
-                      Previous
+                      Précédent
                     </button>
                     <div className="text-base leading-6 text-gray-500">
                       <div className="h-3 w-4 bg-gray-100 inline-block mr-1" />/
                       <div className="h-3 w-4 bg-gray-100 inline-block ml-1" />
                     </div>
                     <button className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-gray-100 text-sm leading-5 font-medium rounded-md bg-white ml-4">
-                      Next
+                      Suivant
                     </button>
                   </div>
                   <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
@@ -241,13 +243,13 @@ function ThirdPartyRegistryList(): React.ReactElement {
               </div>
             ) : resp === null ? (
               <div className="p-4 text-center sm:text-left text-sm leading-5 font-medium text-gray-500 truncate">
-                Failed to load modules
+                Échec du chargement des modules
               </div>
             ) : (
               <div className="bg-white sm:shadow border border-gray-200 overflow-hidden sm:rounded-md mt-4">
                 {resp.results.length == 0 ? (
                   <div className="p-4 text-center sm:text-left text-sm leading-5 font-medium text-gray-500 truncate">
-                    No modules found
+                    Aucun module trouvé
                   </div>
                 ) : (
                   <ModuleList
@@ -286,7 +288,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                   : "text-gray-500 cursor-default"
                               } transition ease-in-out duration-150`}
                             >
-                              Previous
+                              Précédent
                             </button>
                             <div className="text-base leading-6 text-gray-500">
                               {page}/{pageCount}
@@ -300,25 +302,25 @@ function ThirdPartyRegistryList(): React.ReactElement {
                                   : "text-gray-500 cursor-default"
                               } transition ease-in-out duration-150`}
                             >
-                              Next
+                              Suivant
                             </button>
                           </div>
                           <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                             <div>
                               <p className="text-sm leading-5 text-gray-700">
-                                Showing{" "}
+                                Affichant{" "}
                                 <span className="font-medium">
                                   {(page - 1) * PER_PAGE + 1}
                                 </span>{" "}
-                                to{" "}
+                                à{" "}
                                 <span className="font-medium">
                                   {(page - 1) * PER_PAGE + resp.results.length}
                                 </span>{" "}
-                                of{" "}
+                                de{" "}
                                 <span className="font-medium">
                                   {resp.totalCount}
                                 </span>{" "}
-                                results
+                                résultats
                               </p>
                             </div>
                             <div>
@@ -477,45 +479,45 @@ function ThirdPartyRegistryList(): React.ReactElement {
               <div>
                 <div>
                   <dt className="text-lg leading-6 font-medium text-gray-900">
-                    How do I use modules on deno.land/x?
+                    Comment utiliser les modules sur deno.land/x?
                   </dt>
                   <dd className="mt-2">
                     <p className="text-base leading-6 text-gray-500 break-words">
-                      The basic format of code URLs is
+                      Le format de base des codes URL est le suivant
                       <InlineCode>
                         https://deno.land/x/IDENTIFIER@VERSION/FILE_PATH
                       </InlineCode>
-                      . If you leave out the version it will be defaulted to the
-                      most recent version released for the module.
+                      . Si vous omettez la version, elle sera par défaut la
+                      dernière version publiée pour le module.
                     </p>
                   </dd>
                 </div>
                 <div className="mt-12">
                   <dt className="text-lg leading-6 font-medium text-gray-900">
-                    Can I find functionality built-in to Deno here?
+                    Puis-je trouver les fonctionnalités intégrées à Deno ici ?
                   </dt>
                   <dd className="mt-2">
                     <p className="text-base leading-6 text-gray-500">
-                      No, the built-in runtime is documented on{" "}
+                      Non, le runtime intégré est documenté sur{" "}
                       <a className="link" href="https://doc.deno.land/">
                         deno doc
                       </a>{" "}
-                      and in the manual. See{" "}
+                      et dans le manuel. Voir{" "}
                       <Link href="/std">
                         <a className="link">/std</a>
                       </Link>{" "}
-                      for the standard modules.
+                      pour les modules standards.
                     </p>
                   </dd>
                 </div>
                 <div className="mt-12">
                   <dt className="text-lg leading-6 font-medium text-gray-900">
-                    How do I add a module to deno.land/x?
+                    Comment ajouter un module à deno.land/x?
                   </dt>
                   <dd className="mt-2">
                     <p className="text-base leading-6 text-gray-500 break-words">
-                      Press the button below and follow the presented
-                      instructions:
+                      Appuyez sur le bouton ci-dessous et suivez les
+                      instructions présentées :
                     </p>
                     <span className="block w-full rounded-md shadow-sm mt-4">
                       <button
@@ -523,7 +525,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                         className="w-full flex justify-center py-2 px-4 border border-gray-300 text-md font-medium rounded-md text-gray-700 bg-gray-100 hover:text-gray-500 hover:bg-gray-50 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition duration-150 ease-in-out"
                         onClick={() => setOverlayOpen(true)}
                       >
-                        Add a module
+                        Ajouter un module
                       </button>
                     </span>
                   </dd>
@@ -535,34 +537,38 @@ function ThirdPartyRegistryList(): React.ReactElement {
                     className="text-lg leading-6 font-medium text-gray-900"
                     id="warning"
                   >
-                    I am getting a warning when importing from deno.land/x!
+                    Je reçois un avertissement lors d'un import depuis
+                    deno.land/x!
                   </dt>
                   <dd className="mt-2">
                     <p className="text-base leading-6 text-gray-500">
-                      deno.land/x warns you when you are implicitly importing
-                      the latest version of a module (when you do not explicitly
-                      specify a version). This is because it can{" "}
+                      deno.land/x vous avertit lorsque vous importez
+                      implicitement la dernière version d'un module (lorsque
+                      vous n'avez pas explicitement spécifier une version).
+                      C'est parce que cela peut être{" "}
                       <a
                         href="https://github.com/denoland/deno_website2/issues/997"
                         className="link"
                       >
-                        be unsafe to not tag dependencies
+                        dangereux de ne pas étiqueter les dépendances
                       </a>
-                      . To get rid of the warning, explicitly specify a version.
+                      . Pour vous débarrasser de l'avertissement, spécifiez
+                      explicitement une version.
                     </p>
                   </dd>
                 </div>
                 <div className="mt-12">
                   <dt className="text-lg leading-6 font-medium text-gray-900">
-                    Can I edit or remove a module on deno.land/x?
+                    Puis-je modifier ou supprimer un module sur deno.land/x?
                   </dt>
                   <dd className="mt-2">
                     <p className="text-base leading-6 text-gray-500">
-                      Module versions are persistent and immutable. It is thus
-                      not possible to edit or delete a module (or version), to
-                      prevent breaking programs that rely on this module.
-                      Modules may be removed if there is a legal reason to do
-                      (for example copyright infringement).
+                      Les versions des modules sont persistantes et immuables.
+                      Il n'est donc pas possible de modifier ou de supprimer un
+                      module (ou une version), pour éviter de casser les
+                      programmes qui reposent sur ce module. Les modules peuvent
+                      être supprimés s'il existe une raison légale de le faire
+                      (par exemple, une violation du droit d'auteur).
                     </p>
                   </dd>
                 </div>
@@ -571,12 +577,12 @@ function ThirdPartyRegistryList(): React.ReactElement {
           </div>
           <div className="max-w-screen-lg mx-auto pt-4 pb-8 sm:pt-8 sm:pb-12 px-4 sm:px-6 lg:pt-12 lg:pb-16 lg:px-8">
             <h4 className="font-semibold text-2xl" id="stats">
-              Stats
+              Statistiques
             </h4>
             {stats ? (
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div>
-                  <h5 className="font-medium text-lg">New modules</h5>
+                  <h5 className="font-medium text-lg">Nouveaux modules</h5>
                   <div className="bg-white sm:shadow border border-gray-200 overflow-hidden rounded-md mt-2">
                     <ModuleList
                       modules={stats.recently_added_modules.map((v) => ({
@@ -589,7 +595,7 @@ function ThirdPartyRegistryList(): React.ReactElement {
                   </div>
                 </div>
                 <div>
-                  <h5 className="font-medium text-lg">Recently updated</h5>
+                  <h5 className="font-medium text-lg">Récemment mis à jour</h5>
                   <div className="bg-white sm:shadow border border-gray-200 overflow-hidden rounded-md mt-2">
                     <ModuleList
                       modules={stats.recently_uploaded_versions.map((v) => ({
@@ -641,7 +647,7 @@ function ModuleList({
                             replaceEmojis(meta.description)
                           ) : (
                             <span className="italic text-gray-400">
-                              No description
+                              Pas de description
                             </span>
                           )}
                         </span>
@@ -670,7 +676,7 @@ function ModuleList({
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
-                        <title>star</title>
+                        <title>étoiles</title>
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
                       </svg>
                     </div>
