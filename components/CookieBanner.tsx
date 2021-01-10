@@ -19,11 +19,11 @@ export function CookieBanner(): React.ReactElement {
               <div className="w-0 flex-1 flex items-center">
                 <p className="ml-3 font-medium text-white">
                   <span className="md:hidden">
-                    We make use of functional cookies.
+                    Nous utilisons des cookies fonctionnels.
                   </span>
                   <span className="hidden md:inline">
-                    To ensure a good user experience, we make use of functional
-                    cookies.
+                    Pour garantir une bonne expérience utilisateur, nous
+                    utilisons des cookies.
                   </span>
                 </p>
               </div>
