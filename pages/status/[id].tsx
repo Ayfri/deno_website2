@@ -19,7 +19,7 @@ function StatusPage(): React.ReactElement {
   return (
     <>
       <Head>
-        <title>Publish Status | Deno</title>
+        <title>Statut de publication | Deno</title>
       </Head>
       <CookieBanner />
       <div className="bg-gray-50 min-h-full">
@@ -27,7 +27,7 @@ function StatusPage(): React.ReactElement {
         <div className="max-w-screen-md mx-auto px-4 sm:px-6 md:px-8 mt-8 pb-8 mb-16">
           <div>
             <h3 className="text-lg leading-6 font-medium text-gray-900">
-              Module publishing status
+              Statut de publication des modules
             </h3>
             <p className="max-w-2xl text-sm leading-5 text-gray-500">
               deno.land/x{data ? "/" + data.options.moduleName : ""}
@@ -44,7 +44,7 @@ function StatusPage(): React.ReactElement {
               <dl>
                 <div className="sm:grid sm:grid-cols-3 sm:gap-4">
                   <dt className="text-sm leading-5 font-medium text-gray-500">
-                    Repository
+                    Dépôt
                   </dt>
                   <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                     <a
@@ -85,7 +85,7 @@ function StatusPage(): React.ReactElement {
                       }/tree/${data.options.ref}/${data.options.subdir ?? ""}`}
                       className="link"
                     >
-                      View on GitHub
+                      Voir sur GitHub
                     </a>
                   </dd>
                 </div>
