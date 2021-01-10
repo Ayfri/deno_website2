@@ -316,20 +316,20 @@ function Benchmarks(): React.ReactElement {
                   columns={
                     showNormalized ? data?.normalizedReqPerSec : data?.reqPerSec
                   }
-                  yLabel={
-                    showNormalized ? "% d'hyper débit" : "1k req/sec"
-                  }
+                  yLabel={showNormalized ? "% d'hyper débit" : "1k req/sec"}
                   yTickFormat={showNormalized ? formatPercentage : formatReqSec}
                 />
                 <p className="mt-1">
-                  Teste les performances du serveur HTTP.
-                  10 connexions garder-connecter font autant de requêtes Hello-world que possible.
-                  Plus c'est gros, mieux c'est.
+                  Teste les performances du serveur HTTP. 10 connexions
+                  garder-connecter font autant de requêtes Hello-world que
+                  possible. Plus c'est gros, mieux c'est.
                 </p>
                 <ul className="ml-8 list-disc my-2">
                   <li>
-                    <SourceLink path="tools/deno_tcp.ts" name="deno_tcp" /> est un faux serveur http qui n'analyse pas HTTP.
-                    Il est comparable à <SourceLink path="tools/node_tcp.js" name="node_tcp" />
+                    <SourceLink path="tools/deno_tcp.ts" name="deno_tcp" /> est
+                    un faux serveur http qui n'analyse pas HTTP. Il est
+                    comparable à{" "}
+                    <SourceLink path="tools/node_tcp.js" name="node_tcp" />
                   </li>
                   <li>
                     <SourceLink
@@ -340,9 +340,10 @@ function Benchmarks(): React.ReactElement {
                     <SourceLink path="tools/node_http.js" name="node_http" />
                   </li>
                   <li className="break-words">
-                    deno_core_single et deno_core_multi sont deux versions d'un faux serveur HTTP minimal.
-                    Il lit et écrit à l'aveugle des paquets HTTP fixes. Il est comparable à deno_tcp et node_tcp.
-                    Ceci est un exécutable autonome qui utilise{" "}
+                    deno_core_single et deno_core_multi sont deux versions d'un
+                    faux serveur HTTP minimal. Il lit et écrit à l'aveugle des
+                    paquets HTTP fixes. Il est comparable à deno_tcp et
+                    node_tcp. Ceci est un exécutable autonome qui utilise{" "}
                     <a
                       className="link"
                       href="https://crates.io/crates/deno_core"
@@ -380,7 +381,8 @@ function Benchmarks(): React.ReactElement {
                       path="tools/hyper_hello/hyper_hello.rs"
                       name="hyper"
                     />{" "}
-                    est un serveur HTTP Rust et représente une limite supérieure.
+                    est un serveur HTTP Rust et représente une limite
+                    supérieure.
                   </li>
                 </ul>
               </div>
@@ -397,8 +399,9 @@ function Benchmarks(): React.ReactElement {
                   yTickFormat={formatLogScale}
                 />
                 <p className="mt-1">
-                 La latence est maximale et est la même que le test précédent sur les requêtes en seconde.
-                  Plus c'est petit, mieux c'est. Échelle logarithmique.
+                  La latence est maximale et est la même que le test précédent
+                  sur les requêtes en seconde. Plus c'est petit, mieux c'est.
+                  Échelle logarithmique.
                 </p>
               </div>
               <div className="mt-8">
@@ -410,14 +413,13 @@ function Benchmarks(): React.ReactElement {
                 <BenchmarkOrLoading
                   data={data}
                   columns={showNormalized ? data?.normalizedProxy : data?.proxy}
-                  yLabel={
-                    showNormalized ? "% d'hyper débit" : "1k req/sec"
-                  }
+                  yLabel={showNormalized ? "% d'hyper débit" : "1k req/sec"}
                   yTickFormat={showNormalized ? formatPercentage : formatReqSec}
                 />
                 <p className="mt-1">
-                  Teste les performances du proxy. 10 connexions garder-connecter font autant de requêtes Hello-world que possible.
-                  Plus c'est gros, mieux c'est.
+                  Teste les performances du proxy. 10 connexions
+                  garder-connecter font autant de requêtes Hello-world que
+                  possible. Plus c'est gros, mieux c'est.
                 </p>
                 <ul className="ml-8 list-disc my-2">
                   <li>
@@ -425,8 +427,8 @@ function Benchmarks(): React.ReactElement {
                       path="tools/deno_tcp_proxy.ts"
                       name="deno_proxy_tcp"
                     />{" "}
-                    est un faux serveur proxy tcp qui n'analyse pas HTTP.
-                    Il est comparable à{" "}
+                    est un faux serveur proxy tcp qui n'analyse pas HTTP. Il est
+                    comparable à{" "}
                     <SourceLink
                       path="tools/node_tcp_proxy.js"
                       name="node_proxy_tcp"
@@ -437,8 +439,8 @@ function Benchmarks(): React.ReactElement {
                       path="tools/deno_http_proxy.ts"
                       name="deno_proxy"
                     />{" "}
-                    est un serveur proxy HTTP écrit en TypeScript.
-                    Il est comparable à{" "}
+                    est un serveur proxy HTTP écrit en TypeScript. Il est
+                    comparable à{" "}
                     <SourceLink
                       path="tools/node_http_proxy.js"
                       name="node_proxy"
@@ -449,7 +451,8 @@ function Benchmarks(): React.ReactElement {
                       path="tools/hyper_hello/hyper_hello.rs"
                       name="hyper"
                     />{" "}
-                    est un serveur HTTP Rust utilisé comme origine des tests proxy.
+                    est un serveur HTTP Rust utilisé comme origine des tests
+                    proxy.
                   </li>
                 </ul>
               </div>
@@ -466,14 +469,14 @@ function Benchmarks(): React.ReactElement {
                   yTickFormat={formatLogScale}
                 />
                 <p className="mt-1">
-                  Échelle logarithmique.
-                  Temps nécessaire pour acheminer une certaine quantité de données via Deno.{" "}
+                  Échelle logarithmique. Temps nécessaire pour acheminer une
+                  certaine quantité de données via Deno.{" "}
                   <SourceLink
                     path="cli/tests/echo_server.ts"
                     name="echo_server.ts"
                   />{" "}
-                  et <SourceLink path="cli/tests/cat.ts" name="cat.ts" />.
-                  Plus c'est petit, mieux c'est.
+                  et <SourceLink path="cli/tests/cat.ts" name="cat.ts" />. Plus
+                  c'est petit, mieux c'est.
                 </p>
               </div>
             </div>
@@ -492,7 +495,8 @@ function Benchmarks(): React.ReactElement {
                   yTickFormat={formatMB}
                 />
                 <p className="mt-1">
-                  Deno ne transporte qu'un seul binaire exécutable. Nous suivons sa taille ici.
+                  Deno ne transporte qu'un seul binaire exécutable. Nous suivons
+                  sa taille ici.
                 </p>
               </div>
               <div className="mt-8">
