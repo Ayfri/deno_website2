@@ -102,27 +102,29 @@ function Benchmarks(): React.ReactElement {
             <img src="/images/deno_logo_4.gif" className="mb-12 w-32 h-32" />
             <h4 className="text-2xl font-bold tracking-tight">About</h4>
             <p className="mt-4">
-              As part of Deno's continuous integration and testing pipeline we
-              measure the performance of certain key metrics of the runtime. You
-              can view these benchmarks here.
+              Dans le cadre de l'intégration continue de Deno et de sa chaîne
+              d'essai, nous mesurer les performances de certaines mesures clés
+              du temps d'exécution. Vous peuvent consulter ces évaluations ici.
             </p>
             <p className="mt-4">
-              You are currently viewing data for{" "}
-              {showAll ? "all" : "the most recent"} commits to the{" "}
-              <a href="https://github.com/denoland/deno">master</a>
-              branch. You can also view{" "}
+              Vous consultez actuellement les données de{" "}
+              {showAll ? "tous les" : "les plus récents"} commits pour la
+              branche <a href="https://github.com/denoland/deno">master</a>.
+              Vous pouvez également voir{" "}
               <Link href={!showAll ? "/benchmarks?all" : "/benchmarks"}>
-                <a className="link">{!showAll ? "all" : "the most recent"}</a>
+                <a className="link">
+                  {!showAll ? "tous les" : "les plus récents"}
+                </a>
               </Link>{" "}
               commits.
             </p>
             <div className="mt-12 pt-4">
               <h4 className="text-2xl font-bold tracking-tight">
-                Runtime Metrics
+                Mesures du temps d'exécution
               </h4>
               <p className="mt-2">
-                In this section we measure various metrics of the following
-                scripts:
+                Dans cette section, nous mesurons diverses métriques des scripts
+                suivants:
               </p>
               <ul className="ml-8 list-disc my-2">
                 <li>
@@ -168,7 +170,7 @@ function Benchmarks(): React.ReactElement {
               <div className="mt-8">
                 <a href="#execution-time" id="execution-time">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    Execution time
+                    Temps d'exécution
                   </h5>
                 </a>
                 <BenchmarkOrLoading
@@ -176,22 +178,23 @@ function Benchmarks(): React.ReactElement {
                   columns={data?.execTime.filter(
                     ({ name }) => !typescriptBenches.includes(name)
                   )}
-                  yLabel="seconds"
+                  yLabel="secondes"
                   yTickFormat={formatLogScale}
                 />
                 <p className="mt-1">
-                  Log scale. This shows how much time total it takes to run a
-                  script. For deno to execute typescript, it must first compile
-                  it to JS. A warm startup is when deno has a cached JS output
-                  already, so it should be fast because it bypasses the TS
-                  compiler. A cold startup is when deno must compile from
-                  scratch.
+                  Échelle logarithmique. Elle indique le temps total nécessaire
+                  à l'exécution d'un script. Pour que deno puisse exécuter du
+                  typescript, il doit d'abord le compiler en JS. Un démarrage à
+                  chaud se produit lorsque deno a déjà une sortie JS en cache,
+                  donc il doit être rapide car il contourne le compilateur TS.
+                  Un démarrage à froid se produit lorsque deno doit compiler à
+                  partir de zéro.
                 </p>
               </div>
               <div className="mt-8">
                 <a href="#thread-count" id="thread-count">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    Thread count
+                    Nombre de threads
                   </h5>
                 </a>
                 <BenchmarkOrLoading
@@ -201,13 +204,14 @@ function Benchmarks(): React.ReactElement {
                   )}
                 />
                 <p className="mt-1">
-                  How many threads various programs use. Smaller is better.
+                  Combien de threads les différents programmes utilisent. Plus
+                  c'est petit, mieux c'est.
                 </p>
               </div>
               <div className="mt-8">
                 <a href="#syscall-count" id="syscall-count">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    Syscall count
+                    Nombre d'appels système
                   </h5>
                 </a>{" "}
                 <BenchmarkOrLoading
@@ -217,14 +221,14 @@ function Benchmarks(): React.ReactElement {
                   )}
                 />
                 <p className="mt-1">
-                  How many total syscalls are performed when executing a given
-                  script. Smaller is better.
+                  Le nombre total d'appels système effectués lors de l'exécution
+                  d'un script donné. Plus c'est petit, mieux c'est.
                 </p>
               </div>
               <div className="mt-8">
                 <a href="#max-memory-usage" id="max-memory-usage">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    Max memory usage
+                    Utilisation maximale de la mémoire
                   </h5>
                 </a>{" "}
                 <BenchmarkOrLoading
@@ -232,22 +236,23 @@ function Benchmarks(): React.ReactElement {
                   columns={data?.maxMemory.filter(
                     ({ name }) => !typescriptBenches.includes(name)
                   )}
-                  yLabel="megabytes"
+                  yLabel="megaoctets"
                   yTickFormat={formatMB}
                 />
                 <p className="mt-1">
-                  Max memory usage during execution. Smaller is better.
+                  Utilisation maximale de la mémoire pendant l'exécution. Plus
+                  c'est petit, mieux c'est.
                 </p>
               </div>
             </div>
             <div className="mt-20">
               <h4 className="text-2xl font-bold tracking-tight">
-                TypeScript Performance
+                Performances de TypeScript
               </h4>
               <div className="mt-8">
                 <a href="#type-checking" id="type-checking">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    Type Checking
+                    Vérification des types
                   </h5>
                 </a>
                 <BenchmarkOrLoading
@@ -256,18 +261,22 @@ function Benchmarks(): React.ReactElement {
                     console.log(name);
                     return typescriptBenches.includes(name);
                   })}
-                  yLabel="seconds"
+                  yLabel="secondes"
                   yTickFormat={formatLogScale}
                 />
                 <p className="mt-1">
-                  In both cases, <code>std/examples/chat/server_test.ts</code>{" "}
-                  is cached by Deno. The workload contains 20 unique TypeScript
-                  modules. With <em>check</em> a full TypeScript type check is
-                  performed, while <em>no_check</em> uses the{" "}
-                  <code>--no-check</code> flag to skip a full type check.{" "}
-                  <em>bundle</em> does a full type check and generates a single
-                  file output, while <em>bundle_no_check</em> uses the{" "}
-                  <code>--no-check</code> flag to skip a full type check.
+                  Dans les deux cas,{" "}
+                  <code>std/examples/chat/server_test.ts</code> est mis en cache
+                  par Deno. La charge de travail contient 20 modules TypeScript
+                  uniques. Avec l'option <em>check</em> une vérification
+                  complète des types TypeScript est effectuée, pendant que
+                  l'option<em>no_check</em> utilise le flag{" "}
+                  <code>--no-check</code> pour ignorer une vérification complète
+                  des types. <em>bundle</em> effectue une vérification complète
+                  du type et génère une sortie de fichier unique, tandis que{" "}
+                  <em>bundle_no_check</em> utilise le flag{" "}
+                  <code>--no-check</code> pour ignorer une vérification complète
+                  des types.
                 </p>
               </div>
             </div>
@@ -293,13 +302,13 @@ function Benchmarks(): React.ReactElement {
                   ></span>
                 </span>
                 <span className="ml-2 text-gray-900">
-                  Show normalized benchmarks
+                  Afficher les benchmarks normalisés
                 </span>
               </p>
               <div className="mt-8">
                 <a href="#http-server-throughput" id="http-server-throughput">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    HTTP Server Throughput
+                    Débit du serveur HTTP
                   </h5>
                 </a>
                 <BenchmarkOrLoading
@@ -308,57 +317,56 @@ function Benchmarks(): React.ReactElement {
                     showNormalized ? data?.normalizedReqPerSec : data?.reqPerSec
                   }
                   yLabel={
-                    showNormalized ? "% of hyper througput" : "1k req/sec"
+                    showNormalized ? "% d'hyper débit" : "1k req/sec"
                   }
                   yTickFormat={showNormalized ? formatPercentage : formatReqSec}
                 />
                 <p className="mt-1">
-                  Tests HTTP server performance. 10 keep-alive connections do as
-                  many hello-world requests as possible. Bigger is better.
+                  Teste les performances du serveur HTTP.
+                  10 connexions garder-connecter font autant de requêtes Hello-world que possible.
+                  Plus c'est gros, mieux c'est.
                 </p>
                 <ul className="ml-8 list-disc my-2">
                   <li>
-                    <SourceLink path="tools/deno_tcp.ts" name="deno_tcp" /> is a
-                    fake http server that doesn't parse HTTP. It is comparable
-                    to <SourceLink path="tools/node_tcp.js" name="node_tcp" />
+                    <SourceLink path="tools/deno_tcp.ts" name="deno_tcp" /> est un faux serveur http qui n'analyse pas HTTP.
+                    Il est comparable à <SourceLink path="tools/node_tcp.js" name="node_tcp" />
                   </li>
                   <li>
                     <SourceLink
                       path="std/http/http_bench.ts"
                       name="deno_http"
                     />{" "}
-                    is a web server written in TypeScript. It is comparable to{" "}
+                    est un serveur Web écrit en TypeScript. Il est comparable à{" "}
                     <SourceLink path="tools/node_http.js" name="node_http" />
                   </li>
                   <li className="break-words">
-                    deno_core_single and deno_core_multi are two versions of a
-                    minimal fake HTTP server. It blindly reads and writes fixed
-                    HTTP packets. It is comparable to deno_tcp and node_tcp.
-                    This is a standalone executable that uses{" "}
+                    deno_core_single et deno_core_multi sont deux versions d'un faux serveur HTTP minimal.
+                    Il lit et écrit à l'aveugle des paquets HTTP fixes. Il est comparable à deno_tcp et node_tcp.
+                    Ceci est un exécutable autonome qui utilise{" "}
                     <a
                       className="link"
                       href="https://crates.io/crates/deno_core"
                     >
-                      the deno rust crate
+                      la crate rust de deno
                     </a>
-                    . The code is in{" "}
+                    . Le code est dans{" "}
                     <SourceLink
                       path="core/examples/http_bench.rs"
                       name="http_bench.rs"
                     />{" "}
-                    and{" "}
+                    et{" "}
                     <SourceLink
                       path="core/examples/http_bench.js"
                       name="http_bench.js"
                     />
-                    . single uses{" "}
+                    . usage unique{" "}
                     <a
                       className="link"
                       href="https://docs.rs/tokio/latest/tokio/runtime/struct.Builder.html#method.basic_scheduler"
                     >
                       tokio::runtime::Builder::basic_scheduler
                     </a>{" "}
-                    and multi uses{" "}
+                    et usages multiple{" "}
                     <a
                       className="link"
                       href="https://docs.rs/tokio/latest/tokio/runtime/struct.Builder.html#method.threaded_scheduler"
@@ -372,44 +380,44 @@ function Benchmarks(): React.ReactElement {
                       path="tools/hyper_hello/hyper_hello.rs"
                       name="hyper"
                     />{" "}
-                    is a Rust HTTP server and represents an upper bound.
+                    est un serveur HTTP Rust et représente une limite supérieure.
                   </li>
                 </ul>
               </div>
               <div className="mt-8">
                 <a href="#http-latency" id="http-latency">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    HTTP Latency
+                    Latence HTTP
                   </h5>
                 </a>{" "}
                 <BenchmarkOrLoading
                   data={data}
                   columns={data?.maxLatency}
-                  yLabel={"milliseconds"}
+                  yLabel={"millisecondes"}
                   yTickFormat={formatLogScale}
                 />
                 <p className="mt-1">
-                  Max latency during the same test used above for
-                  requests/second. Smaller is better. Log scale.
+                 La latence est maximale et est la même que le test précédent sur les requêtes en seconde.
+                  Plus c'est petit, mieux c'est. Échelle logarithmique.
                 </p>
               </div>
               <div className="mt-8">
                 <a href="#http-proxy-throughput" id="http-proxy-throughput">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    HTTP Proxy Throughput
+                    Débit du proxy HTTP
                   </h5>
                 </a>
                 <BenchmarkOrLoading
                   data={data}
                   columns={showNormalized ? data?.normalizedProxy : data?.proxy}
                   yLabel={
-                    showNormalized ? "% of hyper througput" : "1k req/sec"
+                    showNormalized ? "% d'hyper débit" : "1k req/sec"
                   }
                   yTickFormat={showNormalized ? formatPercentage : formatReqSec}
                 />
                 <p className="mt-1">
-                  Tests proxy performance. 10 keep-alive connections do as many
-                  hello-world requests as possible. Bigger is better.
+                  Teste les performances du proxy. 10 connexions garder-connecter font autant de requêtes Hello-world que possible.
+                  Plus c'est gros, mieux c'est.
                 </p>
                 <ul className="ml-8 list-disc my-2">
                   <li>
@@ -417,8 +425,8 @@ function Benchmarks(): React.ReactElement {
                       path="tools/deno_tcp_proxy.ts"
                       name="deno_proxy_tcp"
                     />{" "}
-                    is a fake tcp proxy server that doesn't parse HTTP. It is
-                    comparable to{" "}
+                    est un faux serveur proxy tcp qui n'analyse pas HTTP.
+                    Il est comparable à{" "}
                     <SourceLink
                       path="tools/node_tcp_proxy.js"
                       name="node_proxy_tcp"
@@ -429,8 +437,8 @@ function Benchmarks(): React.ReactElement {
                       path="tools/deno_http_proxy.ts"
                       name="deno_proxy"
                     />{" "}
-                    is an HTTP proxy server written in TypeScript. It is
-                    comparable to{" "}
+                    est un serveur proxy HTTP écrit en TypeScript.
+                    Il est comparable à{" "}
                     <SourceLink
                       path="tools/node_http_proxy.js"
                       name="node_proxy"
@@ -441,32 +449,31 @@ function Benchmarks(): React.ReactElement {
                       path="tools/hyper_hello/hyper_hello.rs"
                       name="hyper"
                     />{" "}
-                    is a Rust HTTP server used as the origin for the proxy
-                    tests.
+                    est un serveur HTTP Rust utilisé comme origine des tests proxy.
                   </li>
                 </ul>
               </div>
               <div className="mt-8">
                 <a href="#throughput" id="throughput">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    Throughput
+                    Débit
                   </h5>
                 </a>
                 <BenchmarkOrLoading
                   data={data}
                   columns={data?.throughput}
-                  yLabel={"seconds"}
+                  yLabel={"secondes"}
                   yTickFormat={formatLogScale}
                 />
                 <p className="mt-1">
-                  Log scale. Time it takes to pipe a certain amount of data
-                  through Deno.{" "}
+                  Échelle logarithmique.
+                  Temps nécessaire pour acheminer une certaine quantité de données via Deno.{" "}
                   <SourceLink
                     path="cli/tests/echo_server.ts"
                     name="echo_server.ts"
                   />{" "}
-                  and <SourceLink path="cli/tests/cat.ts" name="cat.ts" />.
-                  Smaller is better.
+                  et <SourceLink path="cli/tests/cat.ts" name="cat.ts" />.
+                  Plus c'est petit, mieux c'est.
                 </p>
               </div>
             </div>
@@ -475,32 +482,32 @@ function Benchmarks(): React.ReactElement {
               <div className="mt-8">
                 <a href="#executable-size" id="executable-size">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    Executable size
+                    Taille de l'exécutable
                   </h5>
                 </a>
                 <BenchmarkOrLoading
                   data={data}
                   columns={data?.binarySize}
-                  yLabel={"megabytes"}
+                  yLabel={"megaoctets"}
                   yTickFormat={formatMB}
                 />
                 <p className="mt-1">
-                  Deno ships only a single binary. We track its size here.
+                  Deno ne transporte qu'un seul binaire exécutable. Nous suivons sa taille ici.
                 </p>
               </div>
               <div className="mt-8">
                 <a href="#bundle-size" id="bundle-size">
                   <h5 className="text-lg font-medium tracking-tight hover:underline">
-                    Bundle size
+                    Taille de la sortie
                   </h5>
                 </a>{" "}
                 <BenchmarkOrLoading
                   data={data}
                   columns={data?.bundleSize}
-                  yLabel={"kilobytes"}
+                  yLabel={"kilooctets"}
                   yTickFormat={formatKB}
                 />
-                <p className="mt-1">Size of different bundled scripts.</p>
+                <p className="mt-1">Taille des différents scripts groupés.</p>
                 <ul className="ml-8 list-disc my-2">
                   <li>
                     <Link href="/std/http/file_server.ts">
