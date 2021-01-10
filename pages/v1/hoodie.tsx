@@ -20,7 +20,7 @@ function V1Hoodie(): React.ReactElement {
           Deno 1.0 Hoodie
         </h1>
         <p className="text-gray-500 mt-3 leading-tight">
-          Limited Time, Premium Quality
+          Durée limitée, qualité supérieure
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
           <div>
@@ -28,26 +28,27 @@ function V1Hoodie(): React.ReactElement {
           </div>
           <div>
             <p className="text-gray-900">
-              Help support the Deno project by pre-ordering a limited time,
-              special edition Deno v1.0 hoodie. This black zip-up hoodie
-              features the v1.0 artwork by the famed Tokyo-based hacker/artist{" "}
+              Aidez à soutenir le projet Deno en précommandant un sweatshirt à
+              capuche Deno v1.0 en édition spéciale pour une durée limitée. Ce
+              sweatshirt noir à capuche zippé présente l'illustration de la
+              version 1.0 du célèbre hacker/artiste basé à Tokyo{" "}
               <a className="link" href="https://github.com/hashrock">
                 hashrock
               </a>
               .
             </p>
             <p className="text-gray-900 mt-4">
-              To be clear: this is a pre-order. We have not yet had these
-              manufactured. The image above is a photoshopped mock-up. We will
-              be taking orders until May 21st, after which this limited edition
-              hoodie will never again be sold. We expect to ship these out in
-              July.
+              Pour être clair : il s'agit d'une précommande. Nous ne les avons
+              pas encore fait fabriquer. L'image ci-dessus est une maquette
+              photoshoppée. Nous prendrons les commandes jusqu'au 21 mai, après
+              quoi ce sweatshirt à capuche en édition limitée ne sera plus
+              jamais vendu. Nous prévoyons de les expédier en juillet.
             </p>
             <p className="text-gray-900 font-bold text-2xl leading-tight mt-4">
               $100
             </p>
-            <p className="text-gray-500 mt-1 leading-tight">$15 shipping</p>
-            <h1 className="py-8 text-3xl tracking-tight">Sold Out</h1>
+            <p className="text-gray-500 mt-1 leading-tight">$15 expédition</p>
+            <h1 className="py-8 text-3xl tracking-tight">Plus en stock</h1>
           </div>
         </div>
       </div>
