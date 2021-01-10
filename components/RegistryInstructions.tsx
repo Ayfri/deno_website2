@@ -125,15 +125,21 @@ function RegistryInstructions(props: {
                           <p className="text-base">
                             Tous les modules sur{" "}
                             <b className="font-semibold">deno.land/x</b> doivent
-                            être hébergés en tant que dépôts publics sur GitHub.com.
+                            être hébergés en tant que dépôts publics sur
+                            GitHub.com.
                           </p>
                           <p className="text-base">
                             <b className="font-semibold">deno.land/x</b>{" "}
-                            télécharge et stocke le contenu de votre dépôt chaque fois que vous créez un tag git. Nous ne le faisons qu'une fois par tag. Cela garantit que le contenu que nous servons pour une version spécifique ne peut jamais changer.
+                            télécharge et stocke le contenu de votre dépôt
+                            chaque fois que vous créez un tag git. Nous ne le
+                            faisons qu'une fois par tag. Cela garantit que le
+                            contenu que nous servons pour une version spécifique
+                            ne peut jamais changer.
                           </p>
                           <p className="text-base">
-                            Notre service doit être informé chaque fois qu'un nouveau tag
-                            est créé. Pour cela, nous utilisons les webhooks GitHub.
+                            Notre service doit être informé chaque fois qu'un
+                            nouveau tag est créé. Pour cela, nous utilisons les
+                            webhooks GitHub.
                           </p>
                           <span className="block w-full rounded-md shadow-sm mt-4">
                             <button
@@ -148,7 +154,10 @@ function RegistryInstructions(props: {
                       )}
                       {stage === 1 && (
                         <>
-                          <p>Pour commencer, veuillez sélectionner un nom de module :</p>
+                          <p>
+                            Pour commencer, veuillez sélectionner un nom de
+                            module :
+                          </p>
                           <div>
                             <label
                               htmlFor="modulename"
@@ -178,14 +187,16 @@ function RegistryInstructions(props: {
                               </p>
                             ) : isModuleNameAvailable === false ? (
                               <p className="text-red-400 mb-2">
-                                Ce nom de module n'est pas disponible pour un nouvel
-                                auteur. Si ce module est déjà enregistré auprès de
-                                votre nom, appuyez sur Suivant.
+                                Ce nom de module n'est pas disponible pour un
+                                nouvel auteur. Si ce module est déjà enregistré
+                                auprès de votre nom, appuyez sur Suivant.
                               </p>
                             ) : null}
                             {!isModuleNameValid ? (
                               <span className="text-red-400">
-                                Le nom du module doit comporter entre 3 et 40 caractères et ne contenir que les caractères a-z, 0-9 et _.
+                                Le nom du module doit comporter entre 3 et 40
+                                caractères et ne contenir que les caractères
+                                a-z, 0-9 et _.
                               </span>
                             ) : null}
                           </div>
@@ -211,7 +222,8 @@ function RegistryInstructions(props: {
                       {stage === 2 && (
                         <>
                           <p>
-                            Il existe d'autres paramètres optionnels à mettre en place :
+                            Il existe d'autres paramètres optionnels à mettre en
+                            place :
                           </p>
                           <div className="mt-2">
                             <label
@@ -236,13 +248,16 @@ function RegistryInstructions(props: {
                             />
                             {!isSubdirectoryValid ? (
                               <p className="text-red-400 mb-2">
-                                Le sous-répertoire fourni n'est pas valide. Il doit
-                                se terminent par un <InlineCode>/</InlineCode>, mais peut ne pas commencer par un. (ex{" "}
+                                Le sous-répertoire fourni n'est pas valide. Il
+                                doit se terminent par un{" "}
+                                <InlineCode>/</InlineCode>, mais peut ne pas
+                                commencer par un. (ex{" "}
                                 <InlineCode>src/</InlineCode>)
                               </p>
                             ) : null}
                             <span className="text-gray-500">
-                              Facultatif. Un sous-répertoire de votre dépôt dans lequel se trouve le module à publier.
+                              Facultatif. Un sous-répertoire de votre dépôt dans
+                              lequel se trouve le module à publier.
                             </span>
                           </div>
                           <span className="block w-full rounded-md shadow-sm mt-2">
@@ -268,19 +283,24 @@ function RegistryInstructions(props: {
                       )}
                       {stage === 3 && (
                         <>
-                          <p>Vous pouvez maintenant ajouter le webhook à votre dépôt.</p>
+                          <p>
+                            Vous pouvez maintenant ajouter le webhook à votre
+                            dépôt.
+                          </p>
                           <ol className="list-decimal list-outside ml-4 pl-2 ">
-                            <li>Naviguez vers le dépôt que vous souhaitez ajouter.</li>
+                            <li>
+                              Naviguez vers le dépôt que vous souhaitez ajouter.
+                            </li>
                             <li>
                               Allez à l'onglet <InlineCode>Options</InlineCode>.
                             </li>
                             <li>
-                              Cliquez sur l'onglet <InlineCode>Webhooks</InlineCode>{" "}
-                              .
+                              Cliquez sur l'onglet{" "}
+                              <InlineCode>Webhooks</InlineCode> .
                             </li>
                             <li>
-                              Cliquez sur le bouton <InlineCode>Add webhook</InlineCode>{" "}
-                              .
+                              Cliquez sur le bouton{" "}
+                              <InlineCode>Add webhook</InlineCode> .
                             </li>
                             <li>
                               Entrez l'URL{" "}
@@ -295,8 +315,9 @@ function RegistryInstructions(props: {
                               dans le champ "Payload URL".
                             </li>
                             <li>
-                              Sélectionnez <InlineCode>application/json</InlineCode>{" "}
-                              comme type de contenu.
+                              Sélectionnez{" "}
+                              <InlineCode>application/json</InlineCode> comme
+                              type de contenu.
                             </li>
                             <li>
                               Sélectionnez{" "}
@@ -306,8 +327,7 @@ function RegistryInstructions(props: {
                             </li>
                             <li>
                               Sélectionnez uniquement l'évènement{" "}
-                              <InlineCode>Branch or tag creation</InlineCode>{" "}
-                              .
+                              <InlineCode>Branch or tag creation</InlineCode> .
                             </li>
                             <li>
                               Cliquez sur <InlineCode>Add webhook</InlineCode>.
@@ -323,12 +343,15 @@ function RegistryInstructions(props: {
                           <div className="mt-2">
                             {isModuleNameAvailable ? (
                               <div className="text-gray-800 p-2 bg-gray-50 rounded-md border border-gray-200">
-                                En attente de la réception premier événement WebHook de GitHub...
+                                En attente de la réception premier événement
+                                WebHook de GitHub...
                               </div>
                             ) : (
                               <>
                                 <div className="text-green-800 p-2 bg-gray-50 rounded-md border border-green-200">
-                                  Module enregistré avec succès ! Pour télécharger une version, créez un nouveau tag / une nouvelle version dans le dépôt.
+                                  Module enregistré avec succès ! Pour
+                                  télécharger une version, créez un nouveau tag
+                                  / une nouvelle version dans le dépôt.
                                 </div>
                                 <div className="mt-4 rounded-md shadow-sm">
                                   <button
