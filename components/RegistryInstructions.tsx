@@ -113,30 +113,27 @@ function RegistryInstructions(props: {
                   <div className="my-auto py-10">
                     <header>
                       <h2 className="text-xl leading-7 font-medium text-gray-900">
-                        {stage === 0 && "Adding a module"}
-                        {stage === 1 && "Select a module name"}
-                        {stage === 2 && "Advanced options"}
-                        {stage === 3 && "Add the webhook"}
+                        {stage === 0 && "Ajouter un module"}
+                        {stage === 1 && "Sélectionnez un nom de module"}
+                        {stage === 2 && "Options avancées"}
+                        {stage === 3 && "Ajouter le webhook"}
                       </h2>
                     </header>
                     <div className="space-y-4">
                       {stage === 0 && (
                         <>
                           <p className="text-base">
-                            All modules on{" "}
-                            <b className="font-semibold">deno.land/x</b> need to
-                            be hosted as public repositories on GitHub.com.
+                            Tous les modules sur{" "}
+                            <b className="font-semibold">deno.land/x</b> doivent
+                            être hébergés en tant que dépôts publics sur GitHub.com.
                           </p>
                           <p className="text-base">
                             <b className="font-semibold">deno.land/x</b>{" "}
-                            downloads and stores your repository contents every
-                            time you create a git tag. We only do this once for
-                            every tag. This ensures that the contents we serve
-                            for a specific version can never change.
+                            télécharge et stocke le contenu de votre dépôt chaque fois que vous créez un tag git. Nous ne le faisons qu'une fois par tag. Cela garantit que le contenu que nous servons pour une version spécifique ne peut jamais changer.
                           </p>
                           <p className="text-base">
-                            Our service needs to get informed whenever a new tag
-                            is created. For this purpose we use GitHub webhooks.
+                            Notre service doit être informé chaque fois qu'un nouveau tag
+                            est créé. Pour cela, nous utilisons les webhooks GitHub.
                           </p>
                           <span className="block w-full rounded-md shadow-sm mt-4">
                             <button
@@ -144,14 +141,14 @@ function RegistryInstructions(props: {
                               className="w-full flex justify-center py-2 px-4 mt-12 border border-gray-300 text-md font-medium rounded-md text-gray-700 bg-gray-100 hover:text-gray-500 hover:bg-gray-50 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition duration-150 ease-in-out"
                               onClick={() => setStage(1)}
                             >
-                              Next
+                              Suivant
                             </button>
                           </span>
                         </>
                       )}
                       {stage === 1 && (
                         <>
-                          <p>To get started please select a module name:</p>
+                          <p>Pour commencer, veuillez sélectionner un nom de module :</p>
                           <div>
                             <label
                               htmlFor="modulename"
@@ -177,20 +174,18 @@ function RegistryInstructions(props: {
                             />
                             {isModuleNameAvailable === true ? (
                               <p className="text-green-500 mb-2">
-                                This module name is available.
+                                Ce nom de ce module est disponible.
                               </p>
                             ) : isModuleNameAvailable === false ? (
                               <p className="text-red-400 mb-2">
-                                This module name is not available for a new
-                                author. If this module is already registered to
-                                your name, press Next.
+                                Ce nom de module n'est pas disponible pour un nouvel
+                                auteur. Si ce module est déjà enregistré auprès de
+                                votre nom, appuyez sur Suivant.
                               </p>
                             ) : null}
                             {!isModuleNameValid ? (
                               <span className="text-red-400">
-                                The module name must be between 3 and 40
-                                characters and contain only the characters a-z,
-                                0-9 and _.
+                                Le nom du module doit comporter entre 3 et 40 caractères et ne contenir que les caractères a-z, 0-9 et _.
                               </span>
                             ) : null}
                           </div>
@@ -209,21 +204,21 @@ function RegistryInstructions(props: {
                             </button>
                           </span>
                           <button className="link" onClick={() => setStage(0)}>
-                            Previous
+                            Précédent
                           </button>
                         </>
                       )}
                       {stage === 2 && (
                         <>
                           <p>
-                            There are some more optional settings to set up:
+                            Il existe d'autres paramètres optionnels à mettre en place :
                           </p>
                           <div className="mt-2">
                             <label
                               htmlFor="subdirectory"
                               className="font-medium"
                             >
-                              Subdirectory
+                              Sous-répertoire
                             </label>
                             <input
                               id="subdirectory"
@@ -241,15 +236,13 @@ function RegistryInstructions(props: {
                             />
                             {!isSubdirectoryValid ? (
                               <p className="text-red-400 mb-2">
-                                The provided subdirectory is not valid. It must
-                                end with a <InlineCode>/</InlineCode>, but may
-                                not start with one. (e.g.{" "}
+                                Le sous-répertoire fourni n'est pas valide. Il doit
+                                se terminent par un <InlineCode>/</InlineCode>, mais peut ne pas commencer par un. (ex{" "}
                                 <InlineCode>src/</InlineCode>)
                               </p>
                             ) : null}
                             <span className="text-gray-500">
-                              Optional. A subdirectory in your repository that
-                              the module to be published is located in.
+                              Facultatif. Un sous-répertoire de votre dépôt dans lequel se trouve le module à publier.
                             </span>
                           </div>
                           <span className="block w-full rounded-md shadow-sm mt-2">
@@ -265,32 +258,32 @@ function RegistryInstructions(props: {
                             text-gray-700 bg-gray-100 hover:text-gray-500 hover:bg-gray-50 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition duration-150 ease-in-out`}
                               onClick={() => setStage(3)}
                             >
-                              Next
+                              Suivant
                             </button>
                           </span>
                           <button className="link" onClick={() => setStage(1)}>
-                            Previous
+                            Précédent
                           </button>
                         </>
                       )}
                       {stage === 3 && (
                         <>
-                          <p>You can now add the webhook to your repository.</p>
+                          <p>Vous pouvez maintenant ajouter le webhook à votre dépôt.</p>
                           <ol className="list-decimal list-outside ml-4 pl-2 ">
-                            <li>Navigate to the repository you want to add.</li>
+                            <li>Naviguez vers le dépôt que vous souhaitez ajouter.</li>
                             <li>
-                              Go to the <InlineCode>Settings</InlineCode> tab.
+                              Allez à l'onglet <InlineCode>Options</InlineCode>.
                             </li>
                             <li>
-                              Click on the <InlineCode>Webhooks</InlineCode>{" "}
-                              tab.
+                              Cliquez sur l'onglet <InlineCode>Webhooks</InlineCode>{" "}
+                              .
                             </li>
                             <li>
-                              Click on the <InlineCode>Add webhook</InlineCode>{" "}
-                              button.
+                              Cliquez sur le bouton <InlineCode>Add webhook</InlineCode>{" "}
+                              .
                             </li>
                             <li>
-                              Enter the URL{" "}
+                              Entrez l'URL{" "}
                               <InlineCode>
                                 https://api.deno.land/webhook/gh/{moduleName}
                                 {subdirectory
@@ -299,25 +292,25 @@ function RegistryInstructions(props: {
                                     )}`
                                   : ""}
                               </InlineCode>{" "}
-                              in the payload URL field.
+                              dans le champ "Payload URL".
                             </li>
                             <li>
-                              Select <InlineCode>application/json</InlineCode>{" "}
-                              as the content type.
+                              Sélectionnez <InlineCode>application/json</InlineCode>{" "}
+                              comme type de contenu.
                             </li>
                             <li>
-                              Select{" "}
+                              Sélectionnez{" "}
                               <InlineCode>
                                 Let me select individual events.
                               </InlineCode>
                             </li>
                             <li>
-                              Select only the{" "}
+                              Sélectionnez uniquement l'évènement{" "}
                               <InlineCode>Branch or tag creation</InlineCode>{" "}
-                              event.
+                              .
                             </li>
                             <li>
-                              Press <InlineCode>Add webhook</InlineCode>.
+                              Cliquez sur <InlineCode>Add webhook</InlineCode>.
                             </li>
                           </ol>
                           <video
@@ -330,29 +323,26 @@ function RegistryInstructions(props: {
                           <div className="mt-2">
                             {isModuleNameAvailable ? (
                               <div className="text-gray-800 p-2 bg-gray-50 rounded-md border border-gray-200">
-                                Waiting to receive initial WebHook event from
-                                GitHub...
+                                En attente de la réception premier événement WebHook de GitHub...
                               </div>
                             ) : (
                               <>
                                 <div className="text-green-800 p-2 bg-gray-50 rounded-md border border-green-200">
-                                  Module successfully registered! To upload a
-                                  version, create a new tag / release in the
-                                  repository.
+                                  Module enregistré avec succès ! Pour télécharger une version, créez un nouveau tag / une nouvelle version dans le dépôt.
                                 </div>
                                 <div className="mt-4 rounded-md shadow-sm">
                                   <button
                                     className="w-full flex justify-center py-2 px-4 mt-12 border border-gray-300 text-md font-medium rounded-md text-gray-700 bg-gray-100 hover:text-gray-500 hover:bg-gray-50 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition duration-150 ease-in-out"
                                     onClick={props.close}
                                   >
-                                    Done
+                                    Terminé
                                   </button>
                                 </div>
                               </>
                             )}
                           </div>
                           <button className="link" onClick={() => setStage(2)}>
-                            Previous
+                            Précédent
                           </button>
                         </>
                       )}
