@@ -55,7 +55,7 @@ function FileDisplay(props: {
           )}
           {props.repositoryURL && (
             <a href={props.repositoryURL} className="link ml-4">
-              Dépot
+              Dépôt
             </a>
           )}
         </div>
