@@ -1,6 +1,6 @@
 # deno_website2_fr
 
-[![Build Status](https://github.com/denoland/deno_website2/workflows/ci/badge.svg?branch=master&event=push)](https://github.com/denoland/deno_website2/actions)
+[![Build Status](https://github.com/denoland/deno_website2/workflows/ci/badge.svg?branch=main&event=push)](https://github.com/denoland/deno_website2/actions)
 
 Ceci est le code pour https://deno.land/
 
