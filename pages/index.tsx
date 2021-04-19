@@ -29,6 +29,16 @@ for await (const req of s) {
         <title>Deno - Un runtime sécurisé pour JavaScript et TypeScript</title>
       </Head>
       <CookieBanner />
+      <div className="bg-blue-500 p-4 text-white flex justify-center text-center">
+        <div className="max-w-screen-xl">
+          <span className="inline">Deno 1.9 is out.</span>
+          <span className="block sm:ml-2 sm:inline-block font-semibold">
+            <a href="https://deno.com/blog/v1.9">
+              Read the release notes <span aria-hidden="true">&rarr;</span>
+            </a>
+          </span>
+        </div>
+      </div>
       <div className="bg-white">
         <div className="bg-gray-50 border-b border-gray-200">
           <Header />
@@ -41,7 +51,6 @@ for await (const req of s) {
               pour <strong className="font-semibold">JavaScript</strong> et{" "}
               <strong className="font-semibold">TypeScript</strong>.
             </h2>
-
             <a
               href="https://github.com/denoland/deno/releases/latest"
               className="rounded-full mt-4 px-8 py-2 transition-colors duration-75 ease-in-out bg-blue-500 hover:bg-blue-400 text-white shadow-lg"
@@ -94,9 +103,7 @@ for await (const req of s) {
               </h3>
             </a>
           </Link>
-          <p className="my-4 text-gray-700">
-            Essayez d'exécuter un programme simple:
-          </p>
+          <p className="my-4 text-gray-700">Essayez d'exécuter un programme simple:</p>
           <CodeBlock
             code="deno run https://deno.land/std/examples/welcome.ts"
             language="bash"
@@ -141,10 +148,9 @@ for await (const req of s) {
               <a className="link">un manuel</a>
             </Link>{" "}
             qui contient des explications plus détaillées sur les fonctions les
-            plus complexes du runtime, une introduction aux concepts sur
-            lesquels Deno est construit, des détails sur les composants internes
-            de Deno, comment intégrer Deno dans votre propre application et
-            comment étendre Deno à l'aide de plugins Rust.
+            plus complexes du runtime, une introduction aux concepts sur lesquels Deno
+            est construit, des détails sur les composants internes de Deno, comment intégrer
+            Deno dans votre propre application et comment étendre Deno à l'aide de plugins Rust.
           </p>
           <p className="my-4 text-gray-700">
             Le manuel contient également des informations sur les outils
@@ -195,10 +201,14 @@ for await (const req of s) {
             ,{" "}
             <a href="https://jspm.io" className="link">
               jspm.io
-            </a>{" "}
-            or{" "}
+            </a>
+            ,{" "}
             <a href="https://www.jsdelivr.com/" className="link">
               jsDelivr
+              </a>{" "}
+            or{" "}
+            <a href="https://esm.sh/" className="link">
+              esm.sh
             </a>
             .
           </p>
@@ -289,8 +299,9 @@ const InstallSection = () => {
         <a href="https://crates.io/crates/deno" className="link">
           Cargo
         </a>
+        :
       </p>
-      <CodeBlock language="bash" code={`cargo install deno`} />
+      <CodeBlock language="bash" code={`cargo install deno --locked`} />
     </div>
   );
 
